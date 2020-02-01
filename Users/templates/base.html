@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Shuffle</title>
+    
+</head>
+
+
+<body>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <script src="{% static 'cards/mousetrap.min.js' %}"></script>
+    
+    <nav class="navbar navbar-expand navbar-light bg-light"  style="margin-bottom: 10px;">
+        <a class="navbar-brand" href="#">Shuffle</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{%  url 'cards_see'  %}">Cards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%  url 'cards_make'  %}">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%  url 'cards_taglist'  %}">Tags</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="col col-lg-1">
+    </div>
+    <div class="col col-lg">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <div class="col col-lg-1">
+    </div>
+</div>
+
+
+
+</body>

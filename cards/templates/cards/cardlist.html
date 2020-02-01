@@ -1,0 +1,43 @@
+{% extends "cards/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+{% for card in cards %}
+
+
+<div class="container" style="margin-bottom: 20px;">
+    <div class="col col-lg-1">
+    </div>
+    <div class="col col-lg">
+        <div class="card text-white text-center bg-primary" style="max-width: 95%;">
+            <div class="card-header">
+                <i>Shuffle</i>
+            </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ card.title }}
+            <button class="btn badge-pill badge-info small" onclick='help({{ card.pk }});' id='delete'> delete </button></h5>
+            <p class="card-text">{{ card.txt}}</p>
+        
+        </div>
+            <div class="card-footer text-white">
+                <span class="small">Tags:</span>
+                {% for tag in tags %}
+                    <a href="{% url 'cards_tag' tag %}" class="badge badge-pill badge-light">#{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-1">
+    </div>
+</div>
+{% endfor %}
+
+<script>
+    csrf='{% csrf_token %}'.slice(55,-2)
+    
+    function help(tag) {
+        alert(tag);
+        $.post('#',{'help':true,'csrfmiddlewaretoken':csrf,'tag':tag});
+        
+    }
+</script>
+{% endblock content %}

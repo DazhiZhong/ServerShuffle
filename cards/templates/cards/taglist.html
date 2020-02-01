@@ -1,0 +1,34 @@
+{% extends "cards/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+<div class="container">
+    <div class="col col-lg-1">
+    </div>
+    <div class="col col-lg">
+        <div class="card">
+            <div class="card-header">
+                Tags
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    {% for tag in tags %}
+                        <a href="{% url 'cards_tag' tag %}" class="badge badge-primary badge-pill">#{{tag}}</a>
+                    {% endfor %}
+                    <footer id='footer' class="blockquote-footer"><i>Shuffle</i></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-1">
+    </div>
+</div>
+<script>
+
+
+Mousetrap.bind('4', function() { $('#footer').text('help'); });
+{% comment %} $.get("{% url 'cards_see' %}", function(e){
+    $('#footer').html(e);
+}); {% endcomment %}
+
+</script>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags%}
+
+{%block content%}
+<h2>{{ user.username }}</h2>
+<div>
+<img class = 'rounded-circle account-img' height = 150 width = 150 src = {{ user.profile.image.url }}>
+</div>
+<p>Email: {{ user.email }}<p>
+<p>Bio: {{ user.profile.bio }}</p>
+
+<br/>
+<div class="content-section">
+    <h3>Edit Profile</h3>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form | crispy }}
+        {{ prof_form | crispy}}
+        <button type='submit'>submit</button>
+    </form>
+</div>
+
+
+{%endblock content%}
