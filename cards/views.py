@@ -83,12 +83,13 @@ def create(request):
     formatted like 'title - txt #tag #tag'
     parse through the lines, and manually add them to Cards db
     """
+    context={}
     from .generate_random_image import generate
     
-    generate(monochrome=True,output_path=os.path.join(BASE_DIR,'media/testing/randimage.png'))
+    #generate(monochrome=True,output_path=os.path.join(BASE_DIR,'media/testing/randimage.png'))
     #from  stylegan_genimg import generate_img
     #generate_img(path='media/testing/randimage.png')
-    context = makedict(img_path='/media/testing/randimage.png')
+    #context = makedict(img_path='/media/testing/randimage.png')
     if request.POST:
         # print(request.POST)
         for i in range(1, len(request.POST)):
