@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'files.apps.FilesConfig',
     'crispy_forms',
     'storages',
-    's3direct',
     
 ]
 
@@ -173,17 +172,5 @@ AWS_STORAGE_BUCKET_NAME = config.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
-AWS_S3_REGION_NAME = 'ap-southeast-1'
-AWS_S3_ENDPOINT_URL = 'https://s3.ap-southeast-1.amazonaws.com'
-
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-S3DIRECT_DESTINATIONS = {
-    'example_destination': {
-        # "key" [required] The location to upload file
-        #       1. String: folder path to upload to
-        #       2. Function: generate folder path + filename using a function  
-        'key': 'uploads/files',
-    }
-}

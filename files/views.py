@@ -5,7 +5,7 @@ import os
 import random
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from .forms import S3DirectUploadForm
+
 from django.views.generic import FormView
 
 
@@ -33,9 +33,4 @@ def files(request):
     #u = request.user
     #print(dir(u))
     return render(request,'files/files.html',{'title':'ass','cts':content})
-
-class MyView(FormView):
-    template_name = 'files/upload.html'
-    form_class = S3DirectUploadForm
-
 

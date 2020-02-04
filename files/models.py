@@ -1,6 +1,6 @@
 from django.db import models
 
-from s3direct.fields import S3DirectField
+
 # Create your models here.
 
 
@@ -11,9 +11,6 @@ from s3direct.fields import S3DirectField
 # class ExampleFile(models.Model):
 #     uploadfile = S3DirectField(dest='example_destination')
 
-
-class Example(models.Model):
-    video = S3DirectField(dest='example_destination')
 
 class FilePost(models.Model):
     name = models.CharField(max_length=50)
