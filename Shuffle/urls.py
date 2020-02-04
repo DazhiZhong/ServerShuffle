@@ -21,6 +21,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cards.urls')),
-    path('', include('Users.urls'))
+    path('', include('Users.urls')),
+    path('files/', include('files.urls')),
+    path(r'^s3direct/', include('s3direct.urls')),
+    
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,33 @@
+{% extends "files/base.html"%}
+
+{% block media %}
+    {{ form.media }}
+
+{% endblock media %}
+{% block content%}
+
+
+
+
+
+<div class="container">
+    <div class="col col-lg-1">
+    </div>
+    <div class="col col-lg">
+        <div class="content-section">
+            <form method='POST' >
+                {% csrf_token %}
+                <div>
+                    {{ form.as_p }}
+                </div>
+                <button class='btn btn-primary' type='submit'>submit</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="col col-lg-1">
+    </div>
+</div>
+
+
+{% endblock content %}    
