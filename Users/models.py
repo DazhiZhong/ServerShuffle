@@ -13,10 +13,10 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username} profile"
     
-    def save(self,*args, **kwargs):
-        print('old -',self.image.path)
-        super().save(*args, **kwargs)
-        print('new -',self.image.path)
-        resize_and_crop(self.image.path,self.image.path,(300,300),crop_type="middle")
+    # def save(self,*args, **kwargs):
+    #     print('old -',self.image.path)
+    #     super().save(*args, **kwargs)
+    #     print('new -',self.image.path)
+    #     resize_and_crop(self.image.path,self.image.path,(300,300),crop_type="middle")
 
     
