@@ -11,7 +11,8 @@ urlpatterns = [
     path('tags/', views.taglist, name='cards_taglist'),
     path('t/<str:tag>',views.tagview, name='cards_tag'),
     path('del/', views.deltag, name='cards_deltag'),
-    path('l/<str:tag>', views.card_list, name='cards_list')
+    path('l/<str:tag>', views.card_list, name='cards_list'),
+    path('url/', views.requestview, name='request_view')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

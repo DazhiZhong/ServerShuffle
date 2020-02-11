@@ -8,6 +8,7 @@ from shutil import copy
 from collections import defaultdict
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from .reqview import *
 
 
 hashtag = re.compile(r'[^\\](\#[^\s]+)')
