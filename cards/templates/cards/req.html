@@ -2,6 +2,18 @@
 
 {% block content %}
 
+{% if long %}
+<div class="container">
+    <div class="col col-lg-1"> </div>
+    <div class="col col-lg">
+        {{ short|safe }}
+        {{ long|safe }}
+    </div>
+    <div class="col col-lg-1"></div>
+</div>
+{% endif %}
+
+
 <div class="container">
     <div class="col col-lg-1"> </div>
     <div class="col col-lg">
