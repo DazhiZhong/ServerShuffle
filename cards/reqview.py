@@ -7,8 +7,13 @@ from bs4 import BeautifulSoup as soup
 
 def requestview(request):
     context = {}
-    if request.POST:
-        url = request.POST.get('url',None)
+    print(request.GET)
+    if request.POST or request.GET.get('url',None) is not None:
+        if request.POST:
+            url = request.POST.get('url',None)
+        else:
+            url = request.GET.get('url',None)
+            
         if url == None:
             return redirect('request_view')
         print(url, request.POST)
