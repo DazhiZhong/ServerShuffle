@@ -27,13 +27,17 @@ def requestview(request):
     return render(request, 'cards/req.html', context)
 
 def getvocab(word):
-    url = f'https://www.vocabulary.com/dictionary/{word}'
+    url = f'https://www.vocabulary.com/search?q={word}'
     r = requests.get(url)
     print(r)
     formatted_text = soup(r.text,'html.parser')
     short = formatted_text.findAll('p',{'class':'short'})
     longdef = formatted_text.findAll('p',{'class':'long'})
-    return str(short[0]),str(longdef[0])
+    try:   
+        ret = (str(short[0]),str(longdef[0]))
+    except:
+        ret = ['<p>Sorry, the word you searched is not in this dictionary.</p>','']
+    return ret
 
 
 def wordview(request):
