@@ -15,8 +15,8 @@ db.sqlite3
 db.sqlite3-journal
 media
 
-Shuffle/staticfiles/
-Shuffle/media/
+staticfiles
+
 
 # C extensions
 *.so
@@ -142,3 +142,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
